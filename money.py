@@ -58,7 +58,6 @@ class Money:
         Should use the currency symbol if available, else use the code.
         Use the currency digits to determine number of digits to show.
         """
-        str(self.currency)
         if self.currency.digits == 2:
             return f"{str(self.currency)}{self.amount:.2f}"
         elif self.currency.digits == 3:
@@ -82,7 +81,7 @@ class Money:
         if self.currency == other.currency:
             new_amount = self.amount + other.amount
             return Money(new_amount, self.currency)
-        elif self.currency != other.currency:
+        # elif self.currency != other.currency:
             raise(DifferentCurrencyError)
 
     def sub(self, other):
